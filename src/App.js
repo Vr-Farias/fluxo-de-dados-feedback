@@ -20,14 +20,24 @@ const Container = styled.div`
 
 function App() {
   const [pageFlow, setPageFlow] = useState(1);
+  const [usuario, setUsuario] = useState({})
+
+  
   return (
     <>
       <GlobalStyle />
       <Container>
         <aside>
-          <Header />
+          <Header
+          usuario={usuario}
+          pageFlow={pageFlow}
+             />
           {pageFlow === 1 ? (
-            <FormularioLogin setPageFlow={setPageFlow} />
+            <FormularioLogin 
+             setPageFlow={setPageFlow}
+             usuario={usuario}
+             setUsuario={setUsuario}
+             />
           ) : (
             <FormularioPostagem />
           )}
